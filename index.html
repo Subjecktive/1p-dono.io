@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Donate Options</title>
+  <title>Donate</title>
   <style>
     * {
       margin: 0;
@@ -13,128 +13,78 @@
 
     body {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
       min-height: 100vh;
       background: url('image1.jpg') no-repeat center center fixed;
       background-size: cover;
-      font-family: sans-serif;
-      padding: 20px 10px;
-    }
-
-    .donate-container {
-      width: 100%;
-      max-width: 300px;
-      margin-bottom: 15px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      padding: 20px;
       text-align: center;
     }
 
-    .donate-button {
-      background-color: #000;
-      color: #fff;
+    .donate-section {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      max-width: 320px;
+      width: 100%;
+    }
+
+    .paypal-form {
+      display: inline-grid;
+      justify-items: center;
+      align-content: start;
+      gap: 0.5rem;
+    }
+
+    .pp-T4Z7JFYJJ479U {
+      text-align: center;
       border: none;
-      padding: 15px 20px;
+      border-radius: 0.25rem;
+      min-width: 11.625rem;
+      padding: 0 2rem;
+      height: 2.625rem;
+      font-weight: bold;
+      background-color: #FFD140;
+      color: #000000;
+      font-family: "Helvetica Neue", Arial, sans-serif;
       font-size: 1rem;
+      line-height: 1.25rem;
       cursor: pointer;
-      border-radius: 10px;
+    }
+
+    .qr-code {
+      margin-top: 20px;
       width: 100%;
-      transition: background 0.3s ease;
+      max-width: 200px;
     }
 
-    .donate-button:hover {
-      background-color: #222;
+    .powered-by {
+      font-size: 0.75rem;
     }
 
-    .custom-donate-form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .custom-donate-form input[type="number"] {
-      width: 100%;
-      padding: 12px;
-      font-size: 1rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      text-align: center;
-    }
-
-    @media (max-width: 480px) {
-      .donate-button {
-        font-size: 1rem;
-        padding: 14px;
-      }
-
-      .custom-donate-form input[type="number"] {
-        padding: 10px;
-      }
+    .powered-by img {
+      height: 0.875rem;
+      vertical-align: middle;
     }
   </style>
 </head>
 <body>
-  <!-- Donate 1p -->
-  <div class="donate-container">
-    <form action="https://www.paypal.com/donate" method="post" target="_blank">
-      <input type="hidden" name="business" value="subjecktive@gmail.com" />
-      <input type="hidden" name="currency_code" value="GBP" />
-      <input type="hidden" name="amount" value="0.01" />
-      <button type="submit" class="donate-button">Donate 1p</button>
+  <div class="donate-section">
+    <form class="paypal-form" action="https://www.paypal.com/ncp/payment/T4Z7JFYJJ479U" method="post" target="_blank">
+      <input class="pp-T4Z7JFYJJ479U" type="submit" value="Buy Now" />
+      <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
+      <section class="powered-by">
+        Powered by
+        <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" />
+      </section>
     </form>
-  </div>
 
-  <!-- Donate £1 -->
-  <div class="donate-container">
-    <form action="https://www.paypal.com/donate" method="post" target="_blank">
-      <input type="hidden" name="business" value="subjecktive@gmail.com" />
-      <input type="hidden" name="currency_code" value="GBP" />
-      <input type="hidden" name="amount" value="1.00" />
-      <button type="submit" class="donate-button">Donate £1</button>
-    </form>
+    <!-- QR Code -->
+    <img src="QR.jpeg" alt="QR Code" class="qr-code" />
   </div>
-
-  <!-- Donate £5 -->
-  <div class="donate-container">
-    <form action="https://www.paypal.com/donate" method="post" target="_blank">
-      <input type="hidden" name="business" value="subjecktive@gmail.com" />
-      <input type="hidden" name="currency_code" value="GBP" />
-      <input type="hidden" name="amount" value="5.00" />
-      <button type="submit" class="donate-button">Donate £5</button>
-    </form>
-  </div>
-
-  <!-- Donate £10 -->
-  <div class="donate-container">
-    <form action="https://www.paypal.com/donate" method="post" target="_blank">
-      <input type="hidden" name="business" value="subjecktive@gmail.com" />
-      <input type="hidden" name="currency_code" value="GBP" />
-      <input type="hidden" name="amount" value="10.00" />
-      <button type="submit" class="donate-button">Donate £10</button>
-    </form>
-  </div>
-
-  <!-- Custom Amount -->
-  <div class="donate-container">
-    <form class="custom-donate-form" action="https://www.paypal.com/donate" method="post" target="_blank" onsubmit="return validateAmount()">
-      <input type="hidden" name="business" value="subjecktive@gmail.com" />
-      <input type="hidden" name="currency_code" value="GBP" />
-      <input type="number" name="amount" id="custom-amount" placeholder="Enter £ amount" step="0.01" min="0.01" required />
-      <button type="submit" class="donate-button">Donate Custom</button>
-    </form>
-  </div>
-
-  <script>
-    function validateAmount() {
-      const amountInput = document.getElementById("custom-amount");
-      const value = parseFloat(amountInput.value);
-      if (isNaN(value) || value < 0.01) {
-        alert("Please enter a valid amount (minimum £0.01).");
-        return false;
-      }
-      return true;
-    }
-  </script>
 </body>
 </html>
