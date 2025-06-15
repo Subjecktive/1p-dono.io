@@ -14,7 +14,7 @@
     body {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
       min-height: 100vh;
       background: url('image1.jpg') no-repeat center center fixed;
@@ -25,12 +25,16 @@
     }
 
     .donate-section {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       padding: 20px;
       border-radius: 16px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      max-width: 320px;
       width: 100%;
+      max-width: 320px;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .paypal-form {
@@ -48,8 +52,8 @@
       padding: 0 2rem;
       height: 2.625rem;
       font-weight: bold;
-      background-color: #FFD140;
-      color: #000000;
+      background-color: #000; /* Black background as per your request */
+      color: #fff;
       font-family: "Helvetica Neue", Arial, sans-serif;
       font-size: 1rem;
       line-height: 1.25rem;
@@ -57,9 +61,10 @@
     }
 
     .qr-code {
-      margin-top: 20px;
+      margin-top: 10px;
       width: 100%;
-      max-width: 200px;
+      max-width: 180px;
+      border-radius: 8px;
     }
 
     .powered-by {
@@ -73,9 +78,10 @@
   </style>
 </head>
 <body>
+
   <div class="donate-section">
     <form class="paypal-form" action="https://www.paypal.com/ncp/payment/T4Z7JFYJJ479U" method="post" target="_blank">
-      <input class="pp-T4Z7JFYJJ479U" type="submit" value="Buy Now" />
+      <input class="pp-T4Z7JFYJJ479U" type="submit" value="Donate Now" />
       <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
       <section class="powered-by">
         Powered by
@@ -86,5 +92,6 @@
     <!-- QR Code -->
     <img src="QR.jpeg" alt="QR Code" class="qr-code" />
   </div>
+
 </body>
 </html>
